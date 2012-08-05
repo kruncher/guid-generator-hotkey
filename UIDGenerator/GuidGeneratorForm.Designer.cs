@@ -50,6 +50,8 @@ namespace GUIDGenerator {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuidGeneratorForm));
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtUID = new System.Windows.Forms.TextBox();
 			this.btnGenerate = new System.Windows.Forms.Button();
@@ -58,6 +60,11 @@ namespace GUIDGenerator {
 			this.chkRemoveGUIDHyphens = new System.Windows.Forms.CheckBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtPrefix = new System.Windows.Forms.TextBox();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -141,6 +148,36 @@ namespace GUIDGenerator {
 			this.txtPrefix.Size = new System.Drawing.Size(287, 20);
 			this.txtPrefix.TabIndex = 3;
 			// 
+			// notifyIcon1
+			// 
+			this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+			this.notifyIcon1.Text = "GUID Generator";
+			this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.exitToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(115, 48);
+			// 
+			// showToolStripMenuItem
+			// 
+			this.showToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+			this.showToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+			this.showToolStripMenuItem.Text = "&Show...";
+			this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+			this.exitToolStripMenuItem.Text = "E&xit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
 			// GuidGeneratorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +192,7 @@ namespace GUIDGenerator {
 			this.Controls.Add(this.txtUID);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "GuidGeneratorForm";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -162,6 +200,9 @@ namespace GUIDGenerator {
 			this.Text = "GUID Generator";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuidGeneratorForm_FormClosing);
 			this.Load += new System.EventHandler(this.GuidGeneratorForm_Load);
+			this.VisibleChanged += new System.EventHandler(this.GuidGeneratorForm_VisibleChanged);
+			this.Resize += new System.EventHandler(this.GuidGeneratorForm_Resize);
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -177,6 +218,10 @@ namespace GUIDGenerator {
 		private System.Windows.Forms.CheckBox chkRemoveGUIDHyphens;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtPrefix;
+		private System.Windows.Forms.NotifyIcon notifyIcon1;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 	}
 }
 

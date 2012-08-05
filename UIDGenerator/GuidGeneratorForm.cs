@@ -120,6 +120,31 @@ namespace GUIDGenerator {
 			RefreshGUID();
 		}
 
+		private void GuidGeneratorForm_VisibleChanged(object sender, EventArgs e) {
+			notifyIcon1.Visible = !Visible;
+		}
+
+		private void GuidGeneratorForm_Resize(object sender, EventArgs e) {
+			if (WindowState == FormWindowState.Minimized)
+				Hide();
+		}
+
+		private void notifyIcon1_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == System.Windows.Forms.MouseButtons.Left) {
+				Show();
+				WindowState = FormWindowState.Normal;
+			}
+		}
+
+		private void showToolStripMenuItem_Click(object sender, EventArgs e) {
+			Show();
+			WindowState = FormWindowState.Normal;
+		}
+
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+			Application.Exit();
+		}
+
 		#endregion
 
 		#region Methods
