@@ -29,6 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GUIDGenerator {
 	static class Program {
@@ -37,9 +38,14 @@ namespace GUIDGenerator {
 		/// </summary>
 		[STAThread]
 		static void Main() {
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new GuidGeneratorForm());
+			Mutex mutex = new Mutex(true, "{BCEEA601-A6BE-433D-A13F-91BB1841F209}");
+			if (mutex.WaitOne(TimeSpan.Zero, true)) {
+				Application.EnableVisualStyles();
+				Application.SetCompatibleTextRenderingDefault(false);
+				Application.Run(new GuidGeneratorForm());
+
+				mutex.ReleaseMutex();
+			}
 		}
 	}
 }
