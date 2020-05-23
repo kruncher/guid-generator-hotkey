@@ -1,15 +1,16 @@
-guid-generator-hotkey
-=====================
+# guid-generator-hotkey
 
 Quickly paste GUIDs into various applications using hotkey Ctrl+Shift+V
 
-Getting Started
----------------
+
+## Getting Started
+
 Download and build project using Microsoft Visual Studio 2010. Works with Microsoft Visual C#
 Express Edition.
 
-How it Works
-------------
+
+## How it Works
+
 When application is running Ctrl + Shift + V will generate a new GUID, copy it to the clipboard, and
 send the key sequence Ctrl + V to the active application using `SendKeys`.
 
@@ -18,8 +19,9 @@ clipboard, or generate a new GUID).
 
 Application even works when minimised.
 
-Why did I create this tool?
----------------------------
+
+## Why did I create this tool?
+
 I began writing some user documentation using DITA where each topic must have a unique ID. GUIDs
 are fairly useful in this scenario so I decided to create this little utility to make life easier.
 
@@ -28,16 +30,18 @@ not working after a reboot... doh! must run first...
 
 I thought that others might find this tool useful, so here it is!
 
-Options
--------
+
+## Options
+
 There are several options:
 
 - Prefix :: Add prefix at start of GUID.
 - Remove GUID Hyphens :: When checked removes all hyphens from generated GUID.
 - Upper Case :: When checked converts GUID to upper case characters.
 
-License
--------
+
+## License
+
 Copyright (c) 2012, Lea Hayes
 All rights reserved.
 
